@@ -7,6 +7,8 @@ import store from './Store/store';
 import { LoginContainer } from './containers/login';
 import { view } from './containers/main';
 import { SignupContainer } from './containers/Signup';
+import { DashboardContainer } from './containers/dashboard';
+
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,6 +16,7 @@ ReactDOM.render(
       <Route path="/" component={view}>
         <IndexRoute component={LoginContainer} />
         <Route path="signup" component={SignupContainer} />
+        <Route path="Dashboard" component={DashboardContainer} />
       </Route>
     </Router>
   </Provider>

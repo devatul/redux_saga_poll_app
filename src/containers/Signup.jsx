@@ -8,7 +8,9 @@ export class SignupContainer extends React.Component {
   render() {
     return (
       <div className={styles.bg}>
-        <Signup />
+        <Signup
+          {...this.props}
+        />
       </div>
     );
   }

@@ -6,7 +6,8 @@ import { App } from './app';
 
 function mapStateToProps(state) {
   return {
-    list: state.list,
+    // list: state.list.toJS(),
+    login: state.login.toJS(),
   };
 }
 function mapDispatchToProps(dispatch) {
