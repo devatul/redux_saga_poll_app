@@ -14,6 +14,7 @@ ReactDOM.render(
       <Route path="/" component={view}>
         <IndexRoute component={LoginContainer} />
         <Route path="signup" component={SignupContainer} />
+				<Route path="dashboard" component={dashboardContainer} />
       </Route>
     </Router>
   </Provider>
