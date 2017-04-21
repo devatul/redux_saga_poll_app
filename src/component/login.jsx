@@ -13,9 +13,7 @@ export class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentWillReceiveProps(props) {
-    console.log(props.login.loginStatus);
     if (props.login.loginStatus) {
-      console.log('reached');
       browserHistory.push('#/Dashboard/');
     }
   }
