@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class dashboard extends React.Component {
+export class Dashboard extends React.Component {
 
   render() {
     return (
