@@ -3,16 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router';
 
 export class Signup extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: '',
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleClick() {
-    const response = axios.get('http://144.76.34.244:3333/list_users');
-  }
+ 
   render() {
     return (
       <div className="container">
@@ -35,12 +26,12 @@ export class Signup extends React.Component {
             <label htmlFor="username"><b>Confirm Password</b></label>
             <input type="password" placeholder="Re-Enter Password" name="pswcnfrm" required />
 
-            <button type="submit" onClick={() => { this.props.signup('trialuser', 'passwrd'); }}>Signup</button>
+            <button type="submit">Signup</button>
             <Link to="/">
               <button type="submit" className="btn-danger">Go back to Login page</button>
             </Link>
             <br /><br />
-            <input type="checkbox" onClick={this.handleClick} /> Remember me
+            <input type="checkbox"/> Remember me
           </form>
         </div>
         <div className="col-md-3" />
