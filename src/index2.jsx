@@ -13,13 +13,10 @@ import { DashboardContainer } from './containers/dashboard';
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={view}>
+       <Route path="/" component={view}>
         <IndexRoute component={LoginContainer} />
         <Route path="signup" component={SignupContainer} />
-
-        <Route path="Dashboard" component={DashboardContainer} />
-
-				<Route path="dashboard" component={dashboardContainer} />
+        <Route path="Dashboard" component={dashboardContainer} />
       </Route>
     </Router>
   </Provider>
