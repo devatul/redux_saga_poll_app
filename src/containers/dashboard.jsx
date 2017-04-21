@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Login } from './../component/login';
+import { Dashboard } from './../component/dashboard';
 import styles from '../index2.scss';
 
-export class LoginContainer extends React.Component {
+export class DashboardContainer extends React.Component {
 
   render() {
     return (
       <div className={styles.bg}>
-        <Login
+        <Dashboard
           {...this.props}
         />
       </div>

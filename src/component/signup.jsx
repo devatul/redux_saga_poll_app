@@ -1,9 +1,9 @@
 import React from 'react';
+import axios from 'axios';
 import { Link } from 'react-router';
-import styles from '../index2.scss';
 
 export class Signup extends React.Component {
-
+ 
   render() {
     return (
       <div className="container">
@@ -31,7 +31,7 @@ export class Signup extends React.Component {
               <button type="submit" className="btn-danger">Go back to Login page</button>
             </Link>
             <br /><br />
-            <input type="checkbox" /> Remember me
+            <input type="checkbox"/> Remember me
           </form>
         </div>
         <div className="col-md-3" />

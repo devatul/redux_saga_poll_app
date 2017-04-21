@@ -1,20 +1,20 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-export function* createSagaAsync() {
+export function* createSagaAsync(action) {
   try {
-    console.log('attempting to create an event');
-    const response = yield call(axios.post, 'http://144.76.34.244:3333/list_users');
-    console.log(response.data);
+    const response = yield call(axios.post, `http://144.76.34.244:3333/login?username=${action.username}&password=${action.password}`);
+    yield put({ type: 'Login_Success', response });
+    return response.data;
   } catch (e) {
-    console.log('request failed');
-    console.log(e);
+    yield put({ type: 'Login_Error', e });
+    return e;
   }
 }
 
 export function* watchCreateLesson() {
-  console.log('redux saga is running');
-  yield call(createSagaAsync);
+  const recievedData = yield takeLatest('Login', createSagaAsync);
+  return recievedData;
 }
 export default function* rootSaga() {
   yield [
