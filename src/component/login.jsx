@@ -14,7 +14,7 @@ export class Login extends React.Component {
   }
   componentWillReceiveProps(props) {
     if (props.login.loginStatus) {
-      browserHistory.push('#/Dashboard/');
+      browserHistory.push('#/dashboard/');
     }
   }
   handleSubmit(event) {
