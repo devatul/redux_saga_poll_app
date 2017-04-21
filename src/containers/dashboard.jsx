@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Dashboard } from './../component/dashboard';
+import { dashboard } from './../component/dashboard';
 import styles from '../index2.scss';
 
-export class DashboardContainer extends React.Component {
+export class dashboardContainer extends React.Component {
 
   render() {
     return (
       <div className={styles.bg}>
-        <Dashboard
+        <dashboard
           {...this.props}
         />
       </div>
