@@ -12,7 +12,6 @@ export class Signup extends React.Component {
   }
   handleClick() {
     const response = axios.get('http://144.76.34.244:3333/list_users');
-    console.log(response);
   }
   render() {
     return (
