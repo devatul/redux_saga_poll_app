@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Dashboard } from './../component/dashboard';
-import styles from '../index2.scss';
+import styles from '../index.scss';
 
 export class DashboardContainer extends React.Component {
 

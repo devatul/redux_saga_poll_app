@@ -1,26 +1,23 @@
 import React from 'react';
-import { browserHistory, Link } from 'react-router';
-import styles from '../index2.scss';
-
+import { Link } from 'react-router';
+import styles from '../index.scss';
 
 export class Login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       username: '',
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentWillReceiveProps(props) {
-    if (props.login.loginStatus) {
-      browserHistory.push('#/dashboard/');
-    }
-  }
   handleSubmit(event) {
     event.preventDefault();
     const userName = this.state.username;
     const passWord = this.state.password;
+    this.setState({
+      loginStatus: true,
+    });
     if (userName.length > 2 && passWord.length > 2) {
       this.props.login(userName, passWord);
     }

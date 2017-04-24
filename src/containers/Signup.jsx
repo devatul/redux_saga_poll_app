@@ -1,7 +1,5 @@
 import React from 'react';
-
-import { Login } from './../component/login';
-import styles from '../index2.scss';
+import styles from '../index.scss';
 import { Signup } from './../component/signup';
 export class SignupContainer extends React.Component {
 

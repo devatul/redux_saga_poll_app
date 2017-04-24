@@ -1,13 +1,17 @@
 import React from 'react';
-
 import { Login } from './../component/login';
-import styles from '../index2.scss';
 
 export class LoginContainer extends React.Component {
 
+  componentWillReceiveProps(props) {
+    if (props.loginabc.loginStatus == true) {
+      props.history.push(`dashboard/${props.loginabc}`);
+    }
+  }
+
   render() {
     return (
-      <div className={styles.bg}>
+      <div>
         <Login
           {...this.props}
         />

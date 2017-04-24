@@ -7,7 +7,7 @@ export class Dashboard extends React.Component {
       <div className="jumbotron" >
         <center>
           <h2>
-            Welcome User
+            Welcome {this.props.loginabc.data.username}
           </h2>
         </center>
       </div>
