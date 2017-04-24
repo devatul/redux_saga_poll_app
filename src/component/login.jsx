@@ -24,7 +24,6 @@ export class Login extends React.Component {
   }
 
   render() {
-    // console.log(this.props, 'props of login');
     let buttonType = 'btn btn-success disabled';
     if (this.state.username.length > 2 && this.state.password.length > 2) {
       buttonType = 'btn-success';
