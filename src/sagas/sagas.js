@@ -3,10 +3,7 @@ import axios from 'axios';
 
 export function* createSagaAsync(action) {
   try {
-    console.log(action, 'attempting to create an event');
     const response = yield call(axios.post, `http://144.76.34.244:3333/login?username=${action.username}&password=${action.password}`);
-
-    console.log(response.data.data);
     yield put({ type: 'Login_Success', response });
     return response.data;
   } catch (e) {
@@ -16,7 +13,6 @@ export function* createSagaAsync(action) {
 }
 
 export function* watchCreateLesson() {
-  console.log('redux saga is running');
   const recievedData = yield takeLatest('Login', createSagaAsync);
   return recievedData;
 }

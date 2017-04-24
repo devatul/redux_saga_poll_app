@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 import styles from '../index.scss';
 
 export class Login extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       username: '',
       password: '',
@@ -16,16 +16,12 @@ export class Login extends React.Component {
     event.preventDefault();
     const userName = this.state.username;
     const passWord = this.state.password;
-    this.setState({
-      loginStatus: true,
-    });
     if (userName.length > 2 && passWord.length > 2) {
       this.props.login(userName, passWord);
     }
   }
 
   render() {
-    // console.log(this.props, 'props of login');
     let buttonType = 'btn btn-success disabled';
     if (this.state.username.length > 2 && this.state.password.length > 2) {
       buttonType = 'btn-success';

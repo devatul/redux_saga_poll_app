@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from '../index.scss';
 
 export class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className={styles.reactbody}>
         <center>
           <h1>
             Poll Management System

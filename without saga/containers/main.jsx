@@ -5,8 +5,9 @@ import * as action from '../actions/actions';
 import { App } from './app';
 
 function mapStateToProps(state) {
+  console.log(state.login.toJS(), 'state');
   return {
-    loginabc: state.login.toJS(),
+    login: state.login.toJS(),
   };
 }
 function mapDispatchToProps(dispatch) {

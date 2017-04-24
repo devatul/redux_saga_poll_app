@@ -7,7 +7,9 @@ export class Signup extends React.Component {
     this.state = {
       data: '',
     };
+    this.handleClick = this.handleClick.bind(this);
   }
+
   render() {
     return (
       <div className="container">
@@ -35,7 +37,7 @@ export class Signup extends React.Component {
               <button type="submit" className="btn-danger">Go back to Login page</button>
             </Link>
             <br /><br />
-            <input type="checkbox" /> Remember me
+            <input type="checkbox" onClick={this.handleClick} /> Remember me
           </form>
         </div>
         <div className="col-md-3" />
