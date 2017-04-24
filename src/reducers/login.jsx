@@ -17,5 +17,3 @@ export default function login(state = Immutable.fromJS(initialState), action) {
       return state;
   }
 }
-
-// export default user;

@@ -11,7 +11,6 @@ export class Login extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   handleSubmit(event) {
     event.preventDefault();
     const userName = this.state.username;
