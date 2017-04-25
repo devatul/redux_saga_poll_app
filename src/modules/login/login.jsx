@@ -1,21 +1,20 @@
 import React from 'react';
-import { Login } from './../component/login';
+import { Login } from '.././../components/login/login';
 
 export class LoginContainer extends React.Component {
 
   componentWillReceiveProps(props) {
     if (props.loginabc.loginStatus == true) {
+      console.log(this.props);
       props.history.push(`dashboard/${props.loginabc}`);
     }
   }
 
   render() {
     return (
-      <div>
-        <Login
-          {...this.props}
-        />
-      </div>
+      <Login
+        {...this.props}
+      />
     );
   }
 }

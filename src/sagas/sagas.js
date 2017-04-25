@@ -1,13 +1,14 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+import '../api';
 
 export function* createSagaAsync(action) {
   try {
-    const response = yield call(axios.post, `http://144.76.34.244:3333/login?username=${action.username}&password=${action.password}`);
-    yield put({ type: 'Login_Success', response });
+    const response = yield call(axios.post, `login?username=${action.username}&password=${action.password}`);
+    yield put({ type: 'LOGIN_REQUEST', response });
     return response.data;
   } catch (e) {
-    yield put({ type: 'Login_Error', e });
+    yield put({ type: 'LOGIN_ERROR', e });
     return e;
   }
 }

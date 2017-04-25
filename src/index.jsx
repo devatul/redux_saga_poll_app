@@ -4,10 +4,10 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store, { history } from './Store/store';
 
-import { LoginContainer } from './containers/login';
-import { view } from './containers/main';
-import { SignupContainer } from './containers/Signup';
-import { DashboardContainer } from './containers/dashboard';
+import { LoginContainer } from './modules/login/login';
+import { view } from './modules/main';
+import { SignupContainer } from './modules/signup/Signup';
+import { DashboardContainer } from './modules/dashboard/dashboard';
 
 
 ReactDOM.render(
