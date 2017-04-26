@@ -8,9 +8,7 @@ export const initialState = {
     isLoading:true,
   },
 };
-const userLoginSuccess = (state, action) => update(state, {
-  userLogin: {data:{ $set: action.response.data } },
-});
+const userLoginSuccess = ( action) => console.log(action);
 
 const userLoginError = (state, action) => update(state, {
   userLogin: {data:{ $set: action.payload }},
