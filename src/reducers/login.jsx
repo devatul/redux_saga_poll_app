@@ -9,7 +9,7 @@ export const initialState = {
   },
 };
 const userLoginSuccess = (state, action) => update(state, {
-  userLogin: { $setRequestSuccess: action.payload },
+  userLogin: { isLoading:{$set: true} , data:{$set : action.payload} },
 });
 
 const userLoginError = (state, action) => update(state, {
