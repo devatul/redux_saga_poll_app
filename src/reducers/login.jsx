@@ -1,4 +1,5 @@
 import Immutable from 'immutable';
+import * as constants from '../actions/constants';
 
 const initialState = {
   loginStatus: true,
@@ -7,11 +8,11 @@ const initialState = {
 export default function login(state = Immutable.fromJS(initialState), action) {
   switch (action.type) {
 
-    case 'Login_Success':
+    case constants.LOGIN_REQUEST:
       return state.set('data', action.response.data);
 
-    case 'Login_Error':
-      return state.set('data', action.response.error);
+    case constants.LOGIN_ERROR:
+      return state.set('loginStatus', false);
 
     default :
       return state;

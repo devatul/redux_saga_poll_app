@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import styles from '../index.scss';
+import styles from '../../index.scss';
 
 export class Login extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ export class Login extends React.Component {
       loginStatus: true,
     });
     if (userName.length > 2 && passWord.length > 2) {
-      this.props.login(userName, passWord);
+      this.props.login({ userName, passWord });
     }
   }
 
