@@ -1,20 +1,22 @@
-import Immutable from 'immutable';
+import { handleActions } from 'redux-actions';
+import update from 'immutability-helper';
 import * as constants from '../actions/constants';
 
-const initialState = {
-  loginStatus: true,
-  data: '',
+export const initialState = {
+  userLogin: {
+    data: [],
+    isLoading:true,
+  },
 };
-export default function login(state = Immutable.fromJS(initialState), action) {
-  switch (action.type) {
+const userLoginSuccess = (state, action) => update(state, {
+  userLogin: {data:{ $set: action.response.data } },
+});
 
-    case constants.USER_LOGIN_REQUEST:
-      return state.set('data', action);
+const userLoginError = (state, action) => update(state, {
+  userLogin: {data:{ $set: action.payload }},
+});
 
-    case constants.USER_LOGIN_ERROR:
-      return state.set('loginStatus', false);
-
-    default :
-      return state;
-  }
-}
+export default handleActions({
+  [constants.USER_LOGIN_SUCCESS]: userLoginSuccess,
+  [constants.USER_LOGIN_ERROR]: userLoginError,
+}, initialState);
