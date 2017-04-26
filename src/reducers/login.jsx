@@ -11,11 +11,11 @@ export const initialState = {
     data: [],
     isLoading: false,
   },
+  userSignup: {
+    data: [],
+    isLoading: false,
+  },
 };
-
-const userLoginRequest = state => update(state, {
-  userLogin: { $setRequestLoading: null },
-});
 
 const userLoginSuccess = (state, action) => update(state, {
   userLogin: { $setRequestSuccess: action.payload },
@@ -34,4 +34,4 @@ export default handleActions({
   [constants.VALIDATE_USER_LOGIN_SUCCESS]: validateUserLoginSuccess,
   [constants.VALIDATE_USER_LOGIN_ERROR]: validateUserLoginError,
   [constants.VALIDATE_USER_LOGIN_IDLE]: validateUserLoginIdle,
-});
+}, initialState);
