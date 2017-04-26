@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import * as constants from '../constants';
+import * as constants from '../actions/constants';
 
 const initialState = {
   loginStatus: true,
