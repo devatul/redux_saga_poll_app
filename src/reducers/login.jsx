@@ -5,19 +5,15 @@ import * as constants from '../actions/constants';
 export const initialState = {
   userLogin: {
     data: [],
-    isLoading: false,
+    isLoading:true,
   },
 };
 const userLoginSuccess = (state, action) => update(state, {
-  userLogin: { isLoading:{$set: true} , data:{$set : action.payload} },
+  userLogin: {data:{ $set: action.response.data } },
 });
 
 const userLoginError = (state, action) => update(state, {
-  userLogin: { $setRequestError: action.payload },
-});
-
-const userLoginIdle = (state, action) => update(state, {
-  userLogin: { $setRequestIdle: action.payload },
+  userLogin: {data:{ $set: action.payload }},
 });
 
 export default handleActions({
