@@ -11,7 +11,6 @@ export const initialState = {
 
 const userLoginSuccess = (state, action) => update(state, {
   userLogin: { $setRequestSuccess: action.payload },
-  props.history.push('dashboard/`${action.payload}`')
 });
 
 const userLoginError = (state, action) => update(state, {
@@ -25,4 +24,4 @@ const userLoginIdle = (state, action) => update(state, {
 export default handleActions({
   [constants.USER_LOGIN_SUCCESS]: userLoginSuccess,
   [constants.USER_LOGIN_ERROR]: userLoginError,
-}, initialState,...this.props);
+}, initialState,);
