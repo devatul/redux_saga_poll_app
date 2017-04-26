@@ -8,7 +8,6 @@ export const initialState = {
     isLoading: false,
   },
 };
-
 const userLoginSuccess = (state, action) => update(state, {
   userLogin: { $setRequestSuccess: action.payload },
 });
@@ -24,4 +23,4 @@ const userLoginIdle = (state, action) => update(state, {
 export default handleActions({
   [constants.USER_LOGIN_SUCCESS]: userLoginSuccess,
   [constants.USER_LOGIN_ERROR]: userLoginError,
-}, initialState,);
+}, initialState);

@@ -7,7 +7,7 @@ export function* createSagaAsync(action) {
   console.log(action.payload);
   try {
     const response = yield call(axios.post, `login?username=${action.payload.userName}&password=${action.payload.passWord}`);
-    yield put({ type: 'USER_LOGIN_SUCCESS', response });
+    yield put({ type: 'USER_LOGIN_SUCCESS', { response } });
     return response.data;
   } catch (e) {
     yield put({ type: 'USER_LOGIN_ERROR', e });
@@ -16,8 +16,7 @@ export function* createSagaAsync(action) {
 }
 
 export function* watchCreateLesson() {
-  const recievedData = yield takeLatest(constants.USER_LOGIN_REQUEST, createSagaAsync);
-  return recievedData;
+  yield takeLatest(constants.USER_LOGIN_REQUEST, createSagaAsync);
 }
 export default function* rootSaga() {
   yield [
