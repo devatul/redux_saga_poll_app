@@ -6,7 +6,6 @@ import * as actions from '../actions/actions';
 export function* fetchPollingData() {
   try {
     const response = yield call(axios.post, 'list_polls');
-    console.log(response, 'sad');
     if (response.data.error === 0) {
       yield put(actions.DATA_POLLING_SUCCESS(response));
     } else if (response.data.error === 1) {
