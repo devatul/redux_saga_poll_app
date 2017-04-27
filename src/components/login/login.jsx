@@ -13,13 +13,6 @@ export class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillReceiveProps(props) {
-    console.log(props);
-    if(props.loginabc.userLogin.isError == true && props.loginabc.userLogin.isSuccess == false ){
-      console.log('hello');
-    }
-  }
-
   handleSubmit(event) {
     event.preventDefault();
     const userName = this.state.username;
@@ -33,6 +26,7 @@ export class Login extends React.Component {
   }
 
   render() {
+    const errorMsg= this.props.error;
     let buttonType = 'btn btn-success disabled';
     if (this.state.username.length > 2 && this.state.password.length > 2) {
       buttonType = 'btn-success';
@@ -48,7 +42,8 @@ export class Login extends React.Component {
               </b>
             </div>
           </center>
-
+          <label htmlFor="error" style={{ color: 'red', textTransform: 'uppercase' }}><b>{errorMsg}</b></label>
+          <br />
           <label htmlFor="username"><b>Username</b></label>
           <input
             type="text" placeholder="Enter Username" name="uname" required

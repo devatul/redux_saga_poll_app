@@ -3,7 +3,7 @@ import update from 'immutability-helper';
 import * as constants from '../actions/constants';
 
 export const initialState = {
-  userLogin: {
+  polling: {
     data: [],
     isLoading: false,
     isError: false,
@@ -11,7 +11,7 @@ export const initialState = {
     errors: [],
   },
 };
-const userLoginSuccess = (state, action) => update(state, {
+const pollingFetchSuccess = (state, action) => update(state, {
   userLogin:  {
     data: { $set: action.payload.data },
     isLoading: { $set: true },
@@ -19,22 +19,15 @@ const userLoginSuccess = (state, action) => update(state, {
   },
 });
 
-const userLoginFailed = (state, action) => update(state, {
+const pollingFetchFailed = (state, action) => update(state, {
   userLogin:  {
     errors: { $set: action.payload.data },
     isError: { $set: true },
   },
 });
 
-const userLogout =(state , action)=> update(state,{
-  userLogin: {
-    data: { $set: '' },
-    isLoading:{ $set: false },
-    isSuccess: { $set: false },
-  }
-});
 
 export default handleActions({
-  [constants.USER_LOGIN_SUCCESS]: userLoginSuccess,
-  [constants.USER_LOGIN_FAILED]: userLoginFailed,
+  [constants.DATA_POLLING_SUCCESS]: pollingFetchSuccess,
+  [constants.DATA_POLLING_FAILED]: pollingFetchFailed,
 }, initialState);
