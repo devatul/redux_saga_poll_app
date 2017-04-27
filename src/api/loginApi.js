@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { call, put } from 'redux-saga/effects';
-import './api';
-import * as constants from '../actions/constants';
+import './defaultApi';
+import * as actions from '../actions/actions';
 
 export function* createSagaAsync(action) {
   try {
     const response = yield call(axios.post, `login?username=${action.payload.userName}&password=${action.payload.passWord}`);
-    yield put(constants.USER_LOGIN_SUCCESS(response));
+    yield put(actions.USER_LOGIN_SUCCESS(response));
     return response.data;
   } catch (e) {
-    yield put(constants.USER_LOGIN_ERROR);
+    yield put({ type: 'USER_LOGIN_ERROR', e });
     return e;
   }
 }

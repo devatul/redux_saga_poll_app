@@ -1,20 +1,21 @@
+
 import { handleActions } from 'redux-actions';
 import update from 'immutability-helper';
 import * as constants from '../actions/constants';
-
 export const initialState = {
   userLogin: {
     data: [],
-    isLoading:true,
+    isLoading: false,
+    isError: false,
+    isSucess: false,
+    errors: [],
   },
 };
-const userLoginSuccess = ( action) => console.log(action);
-
-const userLoginError = (state, action) => update(state, {
-  userLogin: {data:{ $set: action.payload }},
-});
-
+const userLoginSuccess = (state, action) =>{
+  update(state, {
+    userLogin: { $setRequestSuccess: action.payload },
+  });
+}
 export default handleActions({
   [constants.USER_LOGIN_SUCCESS]: userLoginSuccess,
-  [constants.USER_LOGIN_ERROR]: userLoginError,
 }, initialState);

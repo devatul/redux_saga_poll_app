@@ -2,7 +2,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Provider } from 'react-redux';
-import store, { history } from './store/store';
+import store, { history } from './Store/store';
 
 import { LoginContainer } from './modules/login/login';
 import { view } from './modules/main';
