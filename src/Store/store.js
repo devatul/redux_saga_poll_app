@@ -1,17 +1,29 @@
-
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import rootReducer from '../reducers/index';
 import rootSaga from '../sagas/sagas';
+import pollList from './data/polllist';
+import user from './data/user';
+import initialState from '../reducers/login';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const sagaMiddleware = createSagaMiddleware();
+const middleware = [sagaMiddleware];
+
+export const defaultState = {
+  user,
+  pollList,
+};
 
 const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(sagaMiddleware),
+ rootReducer,
+ initialState,
+ composeEnhancers(
+  applyMiddleware(...middleware),
+),
 );
 sagaMiddleware.run(rootSaga);
 

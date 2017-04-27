@@ -6,8 +6,9 @@ import * as action from '../actions/actions';
 import { Header } from '../components/header/header';
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
-    loginabc: initialState.userLogin,
+    loginabc: state.login,
   };
 }
 function mapDispatchToProps(dispatch) {
