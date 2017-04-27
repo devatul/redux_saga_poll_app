@@ -7,7 +7,7 @@ export class DashboardContainer extends React.Component {
 
   componentWillReceiveProps(props) {
     if (props.login.userLogin.isSuccess == true && props.login.userLogin.isSuccess == true ) {
-      this.props.DATA_POLLING_REQUEST();
+      this.props.dataPollingRequest();
     }
   }
   render() {
@@ -18,3 +18,6 @@ export class DashboardContainer extends React.Component {
     );
   }
 }
+DashboardContainer.propTypes = {
+  dataPollingRequest:React.PropTypes.func
+};

@@ -7,9 +7,9 @@ export function* createSagaAsync(action) {
   try {
     const response = yield call(axios.post, `login?username=${action.payload.userName}&password=${action.payload.passWord}`);
     if (response.data.error === 0) {
-      yield put(actions.USER_LOGIN_SUCCESS(response));
+      yield put(actions.userLoginSuccess(response));
     } else if (response.data.error === 1) {
-      yield put(actions.USER_LOGIN_FAILED(response));
+      yield put(actions.userLoginFailed(response));
     }
   } catch (e) {
     // handle error if any

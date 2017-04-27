@@ -21,7 +21,7 @@ export class Login extends React.Component {
       loginStatus: true,
     });
     if (userName.length > 2 && passWord.length > 2) {
-      this.props.USER_LOGIN_REQUEST({ userName, passWord });
+      this.props.userLoginRequest({ userName, passWord });
     }
   }
 
@@ -80,3 +80,7 @@ export class Login extends React.Component {
     );
   }
 }
+Login.propTypes = {
+  userLoginRequest: React.PropTypes.func,
+  error: React.PropTypes.string,
+};
