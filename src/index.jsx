@@ -16,7 +16,7 @@ ReactDOM.render(
       <Route path="/" component={view}>
         <IndexRoute component={LoginContainer} />
         <Route path="signup" component={SignupContainer} />
-        <Route path="dashboard/:data" component={DashboardContainer} />
+        <Route path="dashboard" component={DashboardContainer} />
       </Route>
     </Router>
   </Provider>

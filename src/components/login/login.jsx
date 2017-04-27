@@ -8,9 +8,18 @@ export class Login extends React.Component {
     this.state = {
       username: '',
       password: '',
+      error: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentWillReceiveProps(props) {
+    console.log(props);
+    if(props.loginabc.userLogin.isError == true && props.loginabc.userLogin.isSuccess == false ){
+      console.log('hello');
+    }
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const userName = this.state.username;
