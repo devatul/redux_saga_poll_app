@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
-import buttonDanger from '../button/buttondanger';
-import buttonSubmit from '../button/submit';
-import inputTypeText from '../inputtype/text';
-import label from '../label/label';
-import heading from '../Heading/heading';
+import ButtonDanger from '../button/buttondanger';
+import ButtonSubmit from '../button/submit';
+import InputTypeText from '../inputType/text';
+import Label from '../label/label';
+import Heading from '../heading/heading';
 
 export class Signup extends React.Component {
   constructor(props) {
@@ -16,54 +16,63 @@ export class Signup extends React.Component {
     };
   }
   render() {
-    let buttonType = buttonSubmit({ name: 'Signup', click: this.handleSubmit, className: 'btn btn-success disabled' });
+    let buttonType = (<ButtonSubmit
+      name="Login" click={this.handleSubmit}
+      className="btn btn-success disabled"
+    />);
     if (this.state.username.length > 2 && this.state.password.length > 2) {
-      buttonType = buttonSubmit({ name: 'Signup', click: this.handleSubmit, className: 'btn btn-success' });
+      buttonType = (<ButtonSubmit
+        name="Login" click={this.handleSubmit}
+        className="btn btn-success"
+      />);
     }
     return (
       <div className="container">
         <div className="col-md-3" />
         <div className="col-md-6">
-          { heading({ value: 'Create New Account' })}
 
-          <form>
-            {label({ htmlFor: 'username', text: 'User Name' })}
+          <Heading head="Create a New Account" />
 
-            {inputTypeText({ type: 'text',
-              placeHolder: 'Enter UserName',
-              onchange: (event) => {
-                this.setState({
-                  username: event.target.value,
-                });
-              } })}
+          <Label htmlFor="username" text="User Name" />
 
-            {label({ htmlFor: 'password', text: 'Password' })}
+          <InputTypeText
+            type="text" placeHolder="Enter UserName" onchange={(event) => {
+              this.setState({
+                username: event.target.value,
+              });
+            }}
+          />
 
-            {inputTypeText({ type: 'password',
-              placeHolder: 'Enter Password',
-              onchange: (event) => {
-                this.setState({
-                  password: event.target.value,
-                });
-              } })}
-            {label({ htmlFor: 'Confirmpassword', text: 'Confirm Password' })}
 
-            {inputTypeText({ type: 'password',
-              placeHolder: 'Re-Enter Password',
-              onchange: (event) => {
-                this.setState({
-                  confirm_password: event.target.value,
-                });
-              } })}
+          <Label htmlFor="password" text="Password" />
 
-            {buttonType}
+          <InputTypeText
+            type="password" placeHolder="Enter Password" onchange={(event) => {
+              this.setState({
+                password: event.target.value,
+              });
+            }}
+          />
 
-            <Link to="/">
-              {buttonDanger({ name: 'Go back to Login page' })}
-            </Link>
-            <br /><br />
 
-          </form>
+          <Label htmlFor="ReEnterPassword" text="Confirm Paasword" />
+
+          <InputTypeText
+            type="password" placeHolder="Re-Enter Password" onchange={(event) => {
+              this.setState({
+                Confirm_password: event.target.value,
+              });
+            }}
+          />
+
+
+          {buttonType}
+
+          <Link to="/">
+            <ButtonDanger name="Go back to Login page" />
+          </Link>
+
+
         </div>
         <div className="col-md-3" />
       </div>

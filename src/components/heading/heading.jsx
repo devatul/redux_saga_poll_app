@@ -1,13 +1,13 @@
 import React from 'react';
 
-const heading = ({ value }) => (
+const Heading = ({ head }) => (
   <center>
     <div>
       <b>
-        {value}
+        {head}
       </b>
     </div>
   </center>
 );
 
-export default heading;
+export default Heading;

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const label = ({ htmlfor, text }) => (
+const Label = ({ htmlfor, text }) => (
   <label htmlFor={htmlfor} >{text}</label>
 );
 
-export default label;
+export default Label;
