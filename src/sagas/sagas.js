@@ -1,7 +1,6 @@
 import { takeLatest } from 'redux-saga/effects';
 import * as constants from '../actions/constants';
-import '../api/defaultAPI/defaultApi';
-import { createSagaAsync } from '../api/loginAPI/loginApi';
+import { createSagaAsync } from '../api/loginWorkerAPI/loginApi';
 
 
 export function* watchCreateLesson() {
