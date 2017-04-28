@@ -1,7 +1,6 @@
 import { handleActions } from 'redux-actions';
 import update from 'immutability-helper';
 import * as constants from '../actions/constants';
-import './immutaliby';
 
 export const initialState = {
   userLogin: {
@@ -12,12 +11,15 @@ export const initialState = {
     errors: [],
   },
 };
-const userLoginSuccess = (state, action) => update(state, {
-  userLogin: { $setRequestSuccess: action.payload },
-});
+const userLoginSuccess = (state, action) => {
+  console.log(state, 'state', action.payload.data, 'action');
+  update(state, {
+    userLogin: { $setRequestSuccess: action.payload.data },
+  });
+};
 
 const userLoginFailed = (state, action) => update(state, {
-  userLogin: { $setRequestFailed: action.payload },
+  userLogin: { $setRequestFailed: action.payload.data },
 });
 
 
