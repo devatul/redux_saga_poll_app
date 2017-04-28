@@ -1,6 +1,12 @@
 import { createAction } from 'redux-actions';
 import * as constants from './constants';
 
-export const USER_LOGIN_REQUEST = createAction(constants.USER_LOGIN_REQUEST);
-export const USER_LOGIN_SUCCESS = data => createAction(constants.USER_LOGIN_SUCCESS)(data);
-export const USER_LOGIN_ERROR = createAction(constants.USER_LOGIN_ERROR);
+// login
+export const userLoginRequest = createAction(constants.USER_LOGIN_REQUEST);
+export const userLoginSuccess = createAction(constants.USER_LOGIN_SUCCESS);
+export const userLoginFailed = createAction(constants.USER_LOGIN_FAILED);
+
+// polling
+export const dataPollingRequest = createAction(constants.DATA_POLLING_REQUEST);
+export const dataPollingSuccess = createAction(constants.DATA_POLLING_SUCCESS);
+export const dataPollingFailed = createAction(constants.DATA_POLLING_FAILED);

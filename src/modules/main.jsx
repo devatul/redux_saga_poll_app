@@ -6,7 +6,8 @@ import { Header } from '../components/header/header';
 
 function mapStateToProps(state) {
   return {
-    loginabc: state.login,
+    login: state.login,
+    polling: state.polling,
   };
 }
 function mapDispatchToProps(dispatch) {

@@ -12,12 +12,22 @@ export const initialState = {
   },
 };
 const userLoginSuccess = (state, action) => update(state, {
-  userLogin:
-  { isLoading: { $set: true },
+  userLogin: {
     data: { $set: action.payload.data },
+    isLoading: { $set: true },
+    isSuccess: { $set: true },
   },
 });
 
+const userLoginFailed = (state, action) => update(state, {
+  userLogin: {
+    errors: { $set: action.payload.data },
+    isError: { $set: true },
+  },
+});
+
+
 export default handleActions({
   [constants.USER_LOGIN_SUCCESS]: userLoginSuccess,
+  [constants.USER_LOGIN_FAILED]: userLoginFailed,
 }, initialState);
