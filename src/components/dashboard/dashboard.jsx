@@ -10,6 +10,7 @@ export class Dashboard extends React.Component {
             hello
           </h2>
         </center>
+        <button className="btn btn-success" onClick={() => { this.props.dataPollingRequest(); }} > submit </button>
       </div>
     );
   }

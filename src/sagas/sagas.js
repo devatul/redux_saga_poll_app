@@ -1,8 +1,8 @@
 import { takeLatest } from 'redux-saga/effects';
 import * as constants from '../actions/constants';
 import '../api/defaultApi';
-import { createSagaAsync } from '../api/loginApi';
-import { fetchPollingData } from '../api/pollingApi';
+import createSagaAsync from '../api/loginApi';
+import fetchPollingData from '../api/pollingApi';
 
 
 export function* watchCreateLesson() {

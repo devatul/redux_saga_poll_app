@@ -5,22 +5,26 @@ import * as constants from '../actions/constants';
 export const initialState = {
   polling: {
     data: [],
-    isLoading: false,
+    isLoading: true,
     isError: false,
     isSucess: false,
     errors: [],
   },
 };
 const pollingFetchSuccess = (state, action) => update(state, {
-  userLogin:  {
+  polling: {
     data: { $set: action.payload.data },
-    isLoading: { $set: true },
+    isLoading: { $set: false },
     isSuccess: { $set: true },
+    isError: { $set: false },
+    errors: { $set: [] },
   },
 });
-
 const pollingFetchFailed = (state, action) => update(state, {
-  userLogin:  {
+  polling: {
+    data: { $set: [] },
+    isLoading: { $set: false },
+    isSuccess: { $set: false },
     errors: { $set: action.payload.data },
     isError: { $set: true },
   },

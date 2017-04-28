@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects';
 import './defaultApi';
 import * as actions from '../actions/actions';
 
-export function* createSagaAsync(action) {
+export default function* createSagaAsync(action) {
   try {
     const response = yield call(axios.post, `login?username=${action.payload.userName}&password=${action.payload.passWord}`);
     if (response.data.error === 0) {

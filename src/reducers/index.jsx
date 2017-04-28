@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import login from './login';
-import polling from './polling';
+import poll from './poll';
 
 const rootReducer = combineReducers({
   login,
-  polling,
+  poll,
   routing: routerReducer,
 });
 

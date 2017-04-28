@@ -11,15 +11,24 @@ export const initialState = {
     errors: [],
   },
 };
-const userLoginSuccess = (state, action) => {
-  console.log(state, 'state', action.payload.data, 'action');
-  update(state, {
-    userLogin: { $setRequestSuccess: action.payload.data },
-  });
-};
+const userLoginSuccess = (state, action) => update(state, {
+  userLogin: {
+    data: { $set: action.payload.data },
+    isLoading: { $set: false },
+    isSuccess: { $set: true },
+    isError: { $set: false },
+    errors: { $set: [] },
+  },
+});
 
 const userLoginFailed = (state, action) => update(state, {
-  userLogin: { $setRequestFailed: action.payload.data },
+  userLogin: {
+    data: { $set: [] },
+    isLoading: { $set: false },
+    isSuccess: { $set: false },
+    errors: { $set: action.payload.data },
+    isError: { $set: true },
+  },
 });
 
 
