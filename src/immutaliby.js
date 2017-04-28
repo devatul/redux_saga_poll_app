@@ -10,7 +10,7 @@ update.extends('$setRequestSuccess', (payload, original) => update(original, {
 
 update.extends('$setRequestFailed', (payload, original) => update(original, {
   data: { $set: [] },
-  errors: { $set: payload.data },
+  errors: { $set: payload },
   isSuccess: { $set: false },
   isError: { $set: true },
   isLoading: { $set: false },

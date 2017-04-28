@@ -19,13 +19,6 @@ const userLoginFailed = (state, action) => update(state, {
   userLogin: { $setRequestFailed: action.payload },
 });
 
-const userLogout = (state, action) => update(state, {
-  userLogin: {
-    data: { $set: '' },
-    isLoading: { $set: false },
-    isSuccess: { $set: false },
-  },
-});
 
 export default handleActions({
   [constants.USER_LOGIN_SUCCESS]: userLoginSuccess,
