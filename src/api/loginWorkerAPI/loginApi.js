@@ -5,7 +5,8 @@ import * as api from '../api';
 
 export function* createSagaAsync(action) {
   try {
-    const response = yield call(axios.post, api.loginApi(action));
+    const response = yield call(api.createSagaAsync.bind(null, action));
+    console.log('riti');
     yield put(actions.USER_LOGIN_SUCCESS(response.data));
     return response.data;
   } catch (e) {
