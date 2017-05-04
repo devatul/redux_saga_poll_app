@@ -1,11 +1,11 @@
 import React from 'react';
-import { Login } from '.././../components/login/login';
+import Login from '.././../components/login/login';
 
 export default class LoginContainer extends React.Component {
 
   componentWillReceiveProps(props) {
     if (props.login.userLogin.isSuccess === true) {
-      props.history.push('dashboard');
+      this.props.history.push('dashboard');
     }
   }
 
@@ -18,3 +18,8 @@ export default class LoginContainer extends React.Component {
     );
   }
 }
+
+LoginContainer.propTypes = {
+  login: React.PropTypes.isRequired,
+  history: React.PropTypes.isRequired,
+};

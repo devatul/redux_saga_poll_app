@@ -1,16 +1,17 @@
 import React from 'react';
+import Heading from '../heading/heading';
 
-export class Header extends React.Component {
-  render() {
-    return (
-      <div>
-        <center>
-          <h1>
-            Poll Management System
-          </h1>
-        </center>
-        {React.cloneElement(this.props.children, this.props)}
-      </div>
-    );
-  }
+function Header(props) {
+  return (
+    <div>
+      <h1><Heading head="Polling Management System" /> </h1>
+      {React.cloneElement(props.children, props)}
+    </div>
+  );
 }
+export default Header;
+
+
+Header.propTypes = {
+  children: React.PropTypes.func.isRequired,
+};

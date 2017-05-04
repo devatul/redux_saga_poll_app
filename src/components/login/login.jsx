@@ -1,18 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router';
-import styles from '../../index.scss';
 
-export class Login extends React.Component {
+import ButtonSubmit from '../button/submit';
+import InputTypeText from '../inputType/text';
+import Label from '../label/label';
+import Heading from '../heading/heading';
+
+
+export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: '',
       password: '',
-      error: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   handleSubmit(event) {
     event.preventDefault();
     const userName = this.state.username;
@@ -26,52 +28,50 @@ export class Login extends React.Component {
   }
 
   render() {
-    const errorMsg= this.props.error;
-    let buttonType = 'btn btn-success disabled';
+    let buttonType = (<ButtonSubmit
+      name="Login" click={this.handleSubmit}
+      className="btn btn-success disabled"
+    />);
     if (this.state.username.length > 2 && this.state.password.length > 2) {
-      buttonType = 'btn-success';
+      buttonType = (<ButtonSubmit
+        name="Login" click={this.handleSubmit}
+        className="btn btn-success"
+      />);
     }
     return (
       <div className="container">
         <div className="col-md-3" />
         <div className="col-md-6">
-          <center>
-            <div>
-              <b>
-                LOGIN
-              </b>
-            </div>
-          </center>
-          <label htmlFor="error" style={{ color: 'red', textTransform: 'uppercase' }}><b>{errorMsg}</b></label>
+
+          <Heading head="LOGIN" />
+          <Label htmlfor="error" text={this.props.error} />
           <br />
-          <label htmlFor="username"><b>Username</b></label>
-          <input
-            type="text" placeholder="Enter Username" name="uname" required
-            onChange={(event) => {
+          <Label htmlfor="username" text="User Name" />
+
+          <InputTypeText
+            type="text" placeHolder="Enter UserName" onchange={(event) => {
               this.setState({
                 username: event.target.value,
               });
             }}
           />
 
-          <label htmlFor="username"><b>Password</b></label>
-          <input
-            type="password" placeholder="Enter Password" name="psw" required
-            onChange={(event) => {
+
+          <Label htmlfor="password" text="Password" />
+
+          <InputTypeText
+            type="password" placeHolder="Enter Password" onchange={(event) => {
               this.setState({
                 password: event.target.value,
               });
             }}
           />
 
-          <button type="submit" className={buttonType} onClick={this.handleSubmit}>
-            Login
-          </button>
-          <Link to="signup">
-            <button type="submit" className="btn-danger">Signup</button>
-          </Link>
-          <br /><br />
-          <input type="checkbox" /> Remember me
+
+          {buttonType}
+
+
+          <br />
 
 
         </div>
@@ -81,6 +81,6 @@ export class Login extends React.Component {
   }
 }
 Login.propTypes = {
-  userLoginRequest: React.PropTypes.func,
-  error: React.PropTypes.string,
+  userLoginRequest: React.PropTypes.func.isRequired,
+  error: React.PropTypes.string.isRequired,
 };
