@@ -1,10 +1,13 @@
 import React from 'react';
 import update from 'immutability-helper';
+import { Link } from 'react-router';
 import ButtonSubmit from '../button/submit';
 import InputTypeText from '../inputType/text';
 import Label from '../label/label';
 import Heading from '../heading/heading';
 import ViewOptions from './viewOptions';
+
+const Modal = require('boron/DropModal');
 
 let id = 0;
 let Options = [];
@@ -23,6 +26,8 @@ export default class AddPoll extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addOption = this.addOption.bind(this);
     this.handleOpt = this.handleOpt.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
   handleSubmit(event) {
     event.preventDefault();
@@ -30,6 +35,7 @@ export default class AddPoll extends React.Component {
     const options = this.state.options;
     if (title.length > 2 && options.length > 2) {
       this.props.addNewPollRequest({ title, options });
+      this.showModal();
     } else {
       this.setState({ warning: '(Fields are empty and Minimum 2 Options Are To Be Added)' });
     }
@@ -65,7 +71,16 @@ export default class AddPoll extends React.Component {
       this.setState({ th: 'th' });
     }
   }
+    /*eslint-disable */
+  showModal() {
+    this.refs.modal.show();
+  }
+  hideModal() {
+    this.refs.modal.hide();
+  }
+
   render() {
+
     let buttonType = (<ButtonSubmit
       name="Add Poll" click={this.handleSubmit}
       className="btn btn-success disabled"
@@ -100,6 +115,18 @@ export default class AddPoll extends React.Component {
 
           <input type="button" className={buttonClass} value={warning} onClick={this.addOption} />
 
+          <Modal ref="modal">
+            <span>
+              <center>
+                <h2 style={{ color: 'red' }}>
+                  Congratulations...!! Poll has been added successfully..!
+                </h2>
+                <Link to="dashboard">
+                  <button onClick={this.hideModal} className="btn-primary">close</button>
+                </Link>
+              </center>
+            </span>
+          </Modal>
           {buttonType}
         </div>
         <div className="col-md-3" />
@@ -107,7 +134,7 @@ export default class AddPoll extends React.Component {
     );
   }
 }
-
+  /*eslint-enable */
 
 AddPoll.propTypes = {
   addNewPollRequest: React.PropTypes.isRequired,
