@@ -17,7 +17,6 @@ export default class Signup extends React.Component {
     };
   }
   render() {
-    console.log(this.state);
     let buttonType = (<ButtonSubmit
       name="Signup" click={this.handleSubmit}
       className="btn btn-success disabled"
