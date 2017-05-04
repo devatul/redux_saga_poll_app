@@ -11,3 +11,7 @@ const Heading = ({ head }) => (
 );
 
 export default Heading;
+
+Heading.propTypes = {
+  head: React.PropTypes.string.isRequired,
+};

@@ -6,7 +6,7 @@ import InputTypeText from '../inputType/text';
 import Label from '../label/label';
 import Heading from '../heading/heading';
 
-export class Signup extends React.Component {
+export default class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,7 +69,7 @@ export class Signup extends React.Component {
           {buttonType}
 
           <Link to="/">
-            <ButtonDanger name="Go back to Login page" />
+            <ButtonDanger name="Go back to Login page" classes="btn btn-danger" />
           </Link>
 
 

@@ -7,7 +7,7 @@ import Label from '../label/label';
 import Heading from '../heading/heading';
 
 
-export class Login extends React.Component {
+export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,8 +45,9 @@ export class Login extends React.Component {
         <div className="col-md-6">
 
           <Heading head="LOGIN" />
-
-          <Label htmlFor="username" text="User Name" />
+          <Label htmlfor="error" text={this.props.error} />
+          <br />
+          <Label htmlfor="username" text="User Name" />
 
           <InputTypeText
             type="text" placeHolder="Enter UserName" onchange={(event) => {
@@ -57,7 +58,7 @@ export class Login extends React.Component {
           />
 
 
-          <Label htmlFor="password" text="Password" />
+          <Label htmlfor="password" text="Password" />
 
           <InputTypeText
             type="password" placeHolder="Enter Password" onchange={(event) => {
@@ -71,7 +72,7 @@ export class Login extends React.Component {
           {buttonType}
 
           <Link to="signup">
-            <ButtonDanger name="Signup" />
+            <ButtonDanger name="Signup" classes="btn btn-danger" />
           </Link>
           <br />
 
@@ -82,3 +83,7 @@ export class Login extends React.Component {
     );
   }
 }
+Login.propTypes = {
+  userLoginRequest: React.PropTypes.func.isRequired,
+  error: React.PropTypes.string.isRequired,
+};

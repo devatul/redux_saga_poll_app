@@ -5,3 +5,9 @@ const ButtonSubmit = ({ name, click, className }) => (
 );
 
 export default ButtonSubmit;
+
+ButtonSubmit.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  className: React.PropTypes.string.isRequired,
+  click: React.PropTypes.func.isRequired,
+};

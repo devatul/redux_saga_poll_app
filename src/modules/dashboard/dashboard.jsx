@@ -1,19 +1,17 @@
 import React from 'react';
 
-import { Dashboard } from '.././../components/dashboard/dashboard';
+import Dashboard from '.././../components/dashboard/dashboard';
 
-export default class DashboardContainer extends React.Component {
-
-  componentWillReceiveProps(props) {
-    if (props.login.userLogin.isSuccess == true) {
-      this.props.dataPollingRequest();
-    }
-  }
-  render() {
-    return (
-      <Dashboard
-        {...this.props}
-      />
-    );
-  }
+function DashboardContainer(props) {
+  return (
+    <Dashboard
+      {...props}
+    />
+  );
 }
+
+export default DashboardContainer;
+
+DashboardContainer.propTypes = {
+  // DashboardContainer: React.PropTypes.func.isRequired,
+};
