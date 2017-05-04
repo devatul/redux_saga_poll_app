@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 axios.defaults.baseURL = 'http://144.76.34.244:3333/';
 
 // login api path
@@ -11,7 +12,7 @@ export const submitPollApi = action => `do_vote?id=${action.payload.selectedData
 // add user path
 export const addUserApi = action => `add_user?username=${action.payload.username}&password=${action.payload.password}&role=${action.payload.role}`;
 // add new poll path
-export const addPollApi = action => `add_poll?title${action.payload.title}&options=${action.payload.options}`;
+export const addPollApi = action => `add_poll?title=${action.payload.title}&options=${action.payload.options[0]}____${action.payload.options[1]}____${action.payload.options[2]}____${action.payload.options[3]}`;
 // add poll new option path
 export const addPollOptionApi = action => `add_new_option?id=${action.payload.id}&option_text=${action.payload.newOption}`;
 // update poll title path

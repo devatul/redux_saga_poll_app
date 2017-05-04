@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Heading from '../heading/heading';
 import TableRow from '../viewPolls/tableRow';
 
@@ -9,6 +10,11 @@ export default class Dashboard extends React.Component {
       renderOrNot: 1,
     };
   }
+  componentWillMount() {
+    if (this.props.login.userLogin.data.length === 0) {
+      this.props.history.push('/');
+    }
+  }
 
   render() {
     const Greeting = `Hello ${this.props.login.userLogin.data.data.username}`;
@@ -16,7 +22,6 @@ export default class Dashboard extends React.Component {
     return (
 
       <div>
-
         <h2 className="text-capitalize">
           <Heading head={Greeting} />
         </h2>
@@ -27,6 +32,16 @@ export default class Dashboard extends React.Component {
             onClick={() => { this.props.dataPollingRequest(); }}
           > View Polls </button>
         </div>
+        <div>
+          <Link to="add-poll">
+            <button
+              className="btn btn-success"
+              onClick=""
+            > Add Poll </button>
+          </Link>
+        </div>
+
+
         <TableRow {...this.props} />
       </div>
     );
@@ -34,6 +49,7 @@ export default class Dashboard extends React.Component {
   }
 
 Dashboard.propTypes = {
-  login: React.PropTypes.isRequired,
+  login: React.PropTypes.func.isRequired,
   dataPollingRequest: React.PropTypes.func.isRequired,
+  history: React.PropTypes.isRequired,
 };

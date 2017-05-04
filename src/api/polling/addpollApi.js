@@ -3,6 +3,7 @@ import { call, put } from 'redux-saga/effects';
 import * as actions from '../../actions/actions';
 import * as api from '../api';
 
+
 export default function* addNewPollingData(action) {
   try {
     const response = yield call(axios.post, api.addPollApi(action));

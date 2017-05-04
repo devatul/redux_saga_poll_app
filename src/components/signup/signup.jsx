@@ -4,39 +4,27 @@ import ButtonDanger from '../button/buttondanger';
 import ButtonSubmit from '../button/submit';
 import InputTypeText from '../inputType/text';
 import Label from '../label/label';
-import LabelError from '../label/labelerror';
 import Heading from '../heading/heading';
 
-
-export default class Login extends React.Component {
+export default class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: '',
       password: '',
+      confirm_password: '',
+      role: '',
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit(event) {
-    event.preventDefault();
-    const userName = this.state.username;
-    const passWord = this.state.password;
-    this.setState({
-      loginStatus: true,
-    });
-    if (userName.length > 2 && passWord.length > 2) {
-      this.props.userLoginRequest({ userName, passWord });
-    }
-  }
-
   render() {
+    console.log(this.state);
     let buttonType = (<ButtonSubmit
-      name="Login" click={this.handleSubmit}
+      name="Signup" click={this.handleSubmit}
       className="btn btn-success disabled"
     />);
     if (this.state.username.length > 2 && this.state.password.length > 2) {
       buttonType = (<ButtonSubmit
-        name="Login" click={this.handleSubmit}
+        name="SignUp" click={this.handleSubmit}
         className="btn btn-success"
       />);
     }
@@ -45,10 +33,9 @@ export default class Login extends React.Component {
         <div className="col-md-3" />
         <div className="col-md-6">
 
-          <Heading head="LOGIN" />
-          <LabelError htmlfor="error" text={this.props.error} />
-          <br />
-          <Label htmlfor="username" text="User Name" />
+          <Heading head="Create a New Account" />
+
+          <Label htmlFor="username" text="User Name" />
 
           <InputTypeText
             type="text" placeHolder="Enter UserName" onchange={(event) => {
@@ -59,7 +46,7 @@ export default class Login extends React.Component {
           />
 
 
-          <Label htmlfor="password" text="Password" />
+          <Label htmlFor="password" text="Password" />
 
           <InputTypeText
             type="password" placeHolder="Enter Password" onchange={(event) => {
@@ -70,12 +57,36 @@ export default class Login extends React.Component {
           />
 
 
+          <Label htmlFor="ReEnterPassword" text="Confirm Paasword" />
+
+          <InputTypeText
+            type="password" placeHolder="Re-Enter Password" onchange={(event) => {
+              this.setState({
+                confirm_password: event.target.value,
+              });
+            }}
+          />
+          <Label htmlFor="userRole" text="Role" />
+
+          <select
+            className="form-control" onChange={(event) => {
+              this.setState({
+                role: event.target.value,
+              });
+            }}
+          >
+            <option selected="selected" disabled="disabled">Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+            <option value="guest">Guest</option>
+          </select>
+
+          <br />
           {buttonType}
 
-          <Link to="signup">
-            <ButtonDanger name="Signup" classes="btn btn-danger" />
+          <Link to="/">
+            <ButtonDanger name="Go back to Login page" classes="btn btn-danger" />
           </Link>
-          <br />
 
 
         </div>
@@ -84,7 +95,3 @@ export default class Login extends React.Component {
     );
   }
 }
-Login.propTypes = {
-  userLoginRequest: React.PropTypes.func.isRequired,
-  error: React.PropTypes.string.isRequired,
-};

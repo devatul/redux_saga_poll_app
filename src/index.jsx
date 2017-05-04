@@ -9,7 +9,10 @@ import './index.scss';
 
 import LoginContainer from './modules/login/login';
 import { view } from './modules/main';
+import SignupContainer from './modules/signup/Signup';
 import DashboardContainer from './modules/dashboard/dashboard';
+import EditPollContainer from './modules/editPoll/editPoll';
+import AddPollContainer from './modules/addPoll/addPoll';
 
 
 ReactDOM.render(
@@ -17,7 +20,10 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={view}>
         <IndexRoute component={LoginContainer} />
+        <Route path="signup" component={SignupContainer} />
         <Route path="dashboard" component={DashboardContainer} />
+        <Route path="edit-poll" component={EditPollContainer} />
+        <Route path="add-poll" component={AddPollContainer} />
       </Route>
     </Router>
   </Provider>

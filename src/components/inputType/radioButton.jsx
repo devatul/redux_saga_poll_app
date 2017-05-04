@@ -19,6 +19,6 @@ export default InputTypeRadio;
 InputTypeRadio.propTypes = {
   radioButton: React.PropTypes.string.isRequired,
   id: React.PropTypes.string.isRequired,
-  handlePoll: React.PropTypes.func.isRequired,
-  number: React.PropTypes.number.isRequired,
+  handlePoll: React.PropTypes.isRequired,
+  number: React.PropTypes.isRequired,
 };

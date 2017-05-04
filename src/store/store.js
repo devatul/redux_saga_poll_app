@@ -5,7 +5,6 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { hashHistory } from 'react-router';
-import { sessionService } from 'redux-react-session';
 import rootReducer from '../reducers/index';
 import rootSaga from '../sagas/sagas';
 
@@ -19,9 +18,7 @@ const store = createStore(
    applyMiddleware(...middleware),
  ),
 );
-
 sagaMiddleware.run(rootSaga);
-sessionService.initSessionService(store);
 
 export const history = syncHistoryWithStore(hashHistory, store);
 

@@ -19,7 +19,7 @@ export default class TableRow extends React.Component {
       this.setState({
         response: props.polling.polling.data.data,
       });
-      if (!props.polling.submitPoll.data.isLoading) {
+      if (!props.polling.submitPoll.data.error) {
         this.props.dataPollingRequest();
         this.setState({
           submitted: true,

@@ -9,5 +9,5 @@ export default Label;
 Label.propTypes = {
   htmlfor: React.PropTypes.string.isRequired,
   text: React.PropTypes.string.isRequired,
-  no: React.PropTypes.isRequired,
+  no: React.PropTypes.number.isRequired,
 };

@@ -8,6 +8,7 @@ function mapStateToProps(state) {
   return {
     login: state.login,
     polling: state.polling,
+
   };
 }
 function mapDispatchToProps(dispatch) {

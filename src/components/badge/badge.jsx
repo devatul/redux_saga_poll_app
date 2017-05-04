@@ -7,5 +7,5 @@ const Badge = ({ votes }) => (
 export default Badge;
 
 Badge.propTypes = {
-  votes: React.PropTypes.number.isRequired,
+  votes: React.PropTypes.string.isRequired,
 };
