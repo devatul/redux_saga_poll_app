@@ -1,14 +1,16 @@
 import React from 'react';
-import styles from '../../index.scss';
-import { Signup } from '.././../components/signup/signup';
 
-export class SignupContainer extends React.Component {
+import Signup from '.././../components/signup/signup';
 
-  render() {
-    return (
-      <Signup
-        {...this.props}
-      />
-    );
-  }
+function SignupContainer(props) {
+  return (
+    <Signup
+      {...props}
+    />
+  );
 }
+export default SignupContainer;
+
+SignupContainer.propTypes = {
+  // SignupContainer: React.PropTypes.isRequired,
+};

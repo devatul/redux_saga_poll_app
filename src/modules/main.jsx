@@ -2,11 +2,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import * as action from '../actions/actions';
-import { Header } from '../components/header/header';
+import Header from '../components/header/header';
 
 function mapStateToProps(state) {
   return {
-    loginState: state.login,
+    login: state.login,
+    polling: state.polling,
+
   };
 }
 function mapDispatchToProps(dispatch) {

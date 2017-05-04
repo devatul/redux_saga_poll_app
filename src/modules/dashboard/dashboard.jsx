@@ -1,14 +1,17 @@
 import React from 'react';
 
-import { Dashboard } from '.././../components/dashboard/dashboard';
+import Dashboard from '.././../components/dashboard/dashboard';
 
-export class DashboardContainer extends React.Component {
-
-  render() {
-    return (
-      <Dashboard
-        {...this.props}
-      />
-    );
-  }
+function DashboardContainer(props) {
+  return (
+    <Dashboard
+      {...props}
+    />
+  );
 }
+
+export default DashboardContainer;
+
+DashboardContainer.propTypes = {
+  // DashboardContainer: React.PropTypes.func.isRequired,
+};
