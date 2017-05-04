@@ -6,7 +6,7 @@ import { Header } from '../components/header/header';
 
 function mapStateToProps(state) {
   return {
-    loginabc: state.login.toJS(),
+    loginState: state.login,
   };
 }
 function mapDispatchToProps(dispatch) {

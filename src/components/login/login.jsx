@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
-import styles from '../../index.scss';
+import ButtonDanger from '../button/buttondanger';
+import ButtonSubmit from '../button/submit';
+import InputTypeText from '../inputType/text';
+import Label from '../label/label';
+import Heading from '../heading/heading';
+
 
 export class Login extends React.Component {
   constructor(props) {
@@ -19,55 +24,56 @@ export class Login extends React.Component {
       loginStatus: true,
     });
     if (userName.length > 2 && passWord.length > 2) {
-      this.props.login({ userName, passWord });
+      this.props.USER_LOGIN_REQUEST({ userName, passWord });
     }
   }
 
   render() {
-    let buttonType = 'btn btn-success disabled';
+    let buttonType = (<ButtonSubmit
+      name="Login" click={this.handleSubmit}
+      className="btn btn-success disabled"
+    />);
     if (this.state.username.length > 2 && this.state.password.length > 2) {
-      buttonType = 'btn-success';
+      buttonType = (<ButtonSubmit
+        name="Login" click={this.handleSubmit}
+        className="btn btn-success"
+      />);
     }
     return (
       <div className="container">
         <div className="col-md-3" />
         <div className="col-md-6">
-          <center>
-            <div>
-              <b>
-                LOGIN
-              </b>
-            </div>
-          </center>
 
-          <label htmlFor="username"><b>Username</b></label>
-          <input
-            type="text" placeholder="Enter Username" name="uname" required
-            onChange={(event) => {
+          <Heading head="LOGIN" />
+
+          <Label htmlFor="username" text="User Name" />
+
+          <InputTypeText
+            type="text" placeHolder="Enter UserName" onchange={(event) => {
               this.setState({
                 username: event.target.value,
               });
             }}
           />
 
-          <label htmlFor="username"><b>Password</b></label>
-          <input
-            type="password" placeholder="Enter Password" name="psw" required
-            onChange={(event) => {
+
+          <Label htmlFor="password" text="Password" />
+
+          <InputTypeText
+            type="password" placeHolder="Enter Password" onchange={(event) => {
               this.setState({
                 password: event.target.value,
               });
             }}
           />
 
-          <button type="submit" className={buttonType} onClick={this.handleSubmit}>
-            Login
-          </button>
+
+          {buttonType}
+
           <Link to="signup">
-            <button type="submit" className="btn-danger">Signup</button>
+            <ButtonDanger name="Signup" />
           </Link>
-          <br /><br />
-          <input type="checkbox" /> Remember me
+          <br />
 
 
         </div>

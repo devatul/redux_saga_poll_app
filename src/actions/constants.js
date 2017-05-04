@@ -1,8 +1,3 @@
-export const Login = 'Login';
-
-// reducer actions
-
-export const LOGIN_REQUEST = 'LOGIN_REQUEST';
-export const LOGIN_ERROR = 'LOGIN_ERROR';
-
-// API name
+export const USER_LOGIN_REQUEST = 'auth/login/request';
+export const USER_LOGIN_SUCCESS = 'auth/login/success';
+export const USER_LOGIN_ERROR = 'auth/login/error';

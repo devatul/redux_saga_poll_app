@@ -1,16 +1,16 @@
 import React from 'react';
-import HelloWorld from '../dumpHello';
+import Heading from '../heading/heading';
 
 export class Dashboard extends React.Component {
 
   render() {
     return (
       <div className="jumbotron" >
-        <center>
-          <h2>
-            {HelloWorld({ name: 'user' })}
-          </h2>
-        </center>
+
+        <h2>
+          <Heading head="Hello" />
+        </h2>
+
       </div>
     );
   }

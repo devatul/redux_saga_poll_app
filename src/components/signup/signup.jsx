@@ -1,42 +1,78 @@
 import React from 'react';
 import { Link } from 'react-router';
+import ButtonDanger from '../button/buttondanger';
+import ButtonSubmit from '../button/submit';
+import InputTypeText from '../inputType/text';
+import Label from '../label/label';
+import Heading from '../heading/heading';
 
 export class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: '',
+      username: '',
+      password: '',
+      confirm_password: '',
     };
   }
   render() {
+    let buttonType = (<ButtonSubmit
+      name="Login" click={this.handleSubmit}
+      className="btn btn-success disabled"
+    />);
+    if (this.state.username.length > 2 && this.state.password.length > 2) {
+      buttonType = (<ButtonSubmit
+        name="Login" click={this.handleSubmit}
+        className="btn btn-success"
+      />);
+    }
     return (
       <div className="container">
         <div className="col-md-3" />
         <div className="col-md-6">
-          <center>
-            <div>
-              <b>
-                Create New Account
-              </b>
-            </div>
-          </center>
-          <form>
-            <label htmlFor="username"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required />
 
-            <label htmlFor="username"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required />
+          <Heading head="Create a New Account" />
 
-            <label htmlFor="username"><b>Confirm Password</b></label>
-            <input type="password" placeholder="Re-Enter Password" name="pswcnfrm" required />
+          <Label htmlFor="username" text="User Name" />
 
-            <button type="submit">Signup</button>
-            <Link to="/">
-              <button type="submit" className="btn-danger">Go back to Login page</button>
-            </Link>
-            <br /><br />
-            <input type="checkbox" /> Remember me
-          </form>
+          <InputTypeText
+            type="text" placeHolder="Enter UserName" onchange={(event) => {
+              this.setState({
+                username: event.target.value,
+              });
+            }}
+          />
+
+
+          <Label htmlFor="password" text="Password" />
+
+          <InputTypeText
+            type="password" placeHolder="Enter Password" onchange={(event) => {
+              this.setState({
+                password: event.target.value,
+              });
+            }}
+          />
+
+
+          <Label htmlFor="ReEnterPassword" text="Confirm Paasword" />
+
+          <InputTypeText
+            type="password" placeHolder="Re-Enter Password" onchange={(event) => {
+              this.setState({
+                Confirm_password: event.target.value,
+              });
+            }}
+          />
+
+
+          {buttonType}
+
+          <Link to="/">
+            <ButtonDanger name="Go back to Login page" />
+          </Link>
+
+
         </div>
         <div className="col-md-3" />
       </div>

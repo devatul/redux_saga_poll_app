@@ -1,7 +1,6 @@
 import { createAction } from 'redux-actions';
 import * as constants from './constants';
 
-// export function login(username, password) {
-//   return { type: constants.Login, username, password };
-// }
-export const login = createAction(constants.Login);
+export const USER_LOGIN_REQUEST = createAction(constants.USER_LOGIN_REQUEST);
+export const USER_LOGIN_SUCCESS = data => createAction(constants.USER_LOGIN_SUCCESS)(data);
+export const USER_LOGIN_ERROR = createAction(constants.USER_LOGIN_ERROR);

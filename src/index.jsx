@@ -2,7 +2,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Provider } from 'react-redux';
-import store, { history } from './Store/store';
+import store, { history } from './store/store';
 
 import { LoginContainer } from './modules/login/login';
 import { view } from './modules/main';
@@ -16,7 +16,7 @@ ReactDOM.render(
       <Route path="/" component={view}>
         <IndexRoute component={LoginContainer} />
         <Route path="signup" component={SignupContainer} />
-        <Route path="dashboard/:data" component={DashboardContainer} />
+        <Route path="dashboard" component={DashboardContainer} />
       </Route>
     </Router>
   </Provider>
